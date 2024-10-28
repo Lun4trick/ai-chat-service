@@ -63,7 +63,9 @@ export class AppGateway
 
   handleDisconnect(client: Socket) {
     console.log(`Client disconnected: ${client.id}`);
-    this.appService.deleteChatRoom(client.id);
+    if (client.handshake.query.userName === 'test') {
+      this.appService.deleteChatRoom(client.id);
+    }
   }
 
   @SubscribeMessage('send-message')

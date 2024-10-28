@@ -35,8 +35,9 @@ export class OpenAIService {
     ];
     try {
       const response = await this.openai.chat.completions.create({
-        max_completion_tokens: 200,
+        max_completion_tokens: 150,
         model: 'gpt-4o-mini',
+        frequency_penalty: 0.5,
         tools: openaiTools,
         messages: messageArray,
       });
